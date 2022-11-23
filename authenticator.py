@@ -38,13 +38,13 @@ rgb2 = cv2.cvtColor(img2, cv2.COLOR_BGR2RGB)
 #boxes2 = face_recognition.face_locations(rgb2, model="cnn")
 encodings2 = face_recognition.face_encodings(rgb2)[0]
 
-maor = face_recognition.load_image_file("./test_authenticator/maor.jpg")
-maor2 = face_recognition.load_image_file("./test_authenticator/maor1.jpg")
+maor = face_recognition.load_image_file("./test_authenticator/obama-240p.jpg")
+maor2 = face_recognition.load_image_file("./test_authenticator/Official_portrait_of_Barack_Obama.jpg")
 
 maor_encodings = face_recognition.face_encodings(maor)[0]
 maor2_encodings = face_recognition.face_encodings(maor2)[0]
 
-results = face_recognition.compare_faces([maor_encodings], maor2_encodings)
-results1 = face_recognition.compare_faces([encodings1], encodings2, tolerance=0.4)
+results = face_recognition.compare_faces([maor_encodings], maor2_encodings, tolerance=0.32)
+results1 = face_recognition.compare_faces([encodings1], encodings2, tolerance=0.32)
 print(results)
 print(results1)
